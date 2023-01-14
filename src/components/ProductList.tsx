@@ -5,8 +5,8 @@ export const ProductList = (props:SetTotal) => {
 
      const data = [
         {
-          "title": "",
-          "price": "$5,332",
+          "title": "Tatiana Manaois",
+          "price": "$17,332",
           "description": "odio vel est tempor bibendum. Donec felis orci, adipiscing"
         },
         {

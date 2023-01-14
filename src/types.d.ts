@@ -1,14 +1,14 @@
 
 
 export interface Props {
-    title?: string,
-    price?: string,
-    desc?: string,
+    title?: string
+    price?: string
+    desc?: string
     product?: {
-        title: string,
-        price: string,
-        desc: string,
-    },
+        title: string
+        price: string
+        desc: string
+    }
     setTotal: SetTotal
 }
 

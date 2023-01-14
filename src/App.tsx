@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
     const [sum, setTotal] = useState<{total:number}>({total:0})
   return (
-    <div className="text-blue-400 my-5 container mx-auto">
+    <div className="text-blue-400 my-5 container mx-auto px-2">
          <Navbar total = {sum.total} />
 
 

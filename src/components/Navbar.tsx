@@ -1,6 +1,6 @@
 export const Navbar = (prop:{total: number}) => {
   return (
-    <div className="flex items-center justify-center border-b pb-4 px-8 fixed top-0 w-full bg-white/60 backdrop-blur-md">
+    <div className="flex items-center justify-center border-b pb-4 px-8 fixed z-50 top-0 w-full bg-white/60 backdrop-blur-md">
         <nav className="w-full">
             <ul className="flex flex-row gap-4 justify-center items-center">
             <a href="/"><li>Home</li></a>
