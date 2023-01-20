@@ -11,26 +11,7 @@ interface State {
 }
 
 const initialState: State = {
-    cart: [
-        {
-            item:{
-                id: 1,
-                title: 'Tatiana Manaois',
-                price: '17332',
-                description: 'odio vel est tempor bibendum. Donec felis orci, adipiscing',
-            },
-            qtty: 4
-        }, 
-        {
-            item: {
-                id: 2,
-                title: 'Olax AX7 Pro Router',
-                price: '7475',
-                description: 'vitae diam. Proin dolor. Nulla semper tellus id nunc',
-            },
-            qtty: 2
-        }
-    ],
+    cart: [],
 	sumTotal: 5681,
 }
 
@@ -38,8 +19,9 @@ const productSlice = createSlice({
 	name: 'products',
 	initialState,
 	reducers: {
-		addToCart: (state: any, action: PayloadAction<ProductType>) =>{
-            console.log(state.cart)
+		addToCart: (state: State, action: PayloadAction<ProductType>) =>{
+            const newitems = state.cart.map(item =>item.item)
+            console.log(newitems)
             //const cartLength = state.cart?state.cart.length:0
             let found = false
             for(const cartItem of state.cart){
@@ -65,7 +47,7 @@ const productSlice = createSlice({
 
 export const { addToCart, removeFromCart } = productSlice.actions
 
-export const getCart = (state:any) => state.cart
+export const getCart = (state:any) => state
 
 export const getSumTotal = (state: any) => state.sumTotal
 
