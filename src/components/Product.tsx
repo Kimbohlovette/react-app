@@ -15,7 +15,8 @@ const Product = (props: Props) => {
 		dispatch(addToCart(props.product))
 	}
 	const decrement = () => {
-		dispatch(removeFromCart(props.product))
+        const id = props.product.id
+		dispatch(removeFromCart(id))
         setQty(qty=>qty - 1)
 	}
 	return (

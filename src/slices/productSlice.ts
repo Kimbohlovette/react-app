@@ -39,7 +39,16 @@ const productSlice = createSlice({
             console.log("cart after action: ", state.cart, state.cart.length)
 
         },
-		removeFromCart: (state, action:PayloadAction<ProductType> )=> {},
+		removeFromCart: (state, action:PayloadAction<number> )=> {
+            const id = action.payload
+
+            for(const cartItem of state.cart){
+                if(cartItem.item.id===id){
+                    const index = state.cart.indexOf(cartItem)
+                    state.cart[index].qtty -=1
+                }
+            }
+        },
 	},
 })
 
