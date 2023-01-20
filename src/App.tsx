@@ -2,22 +2,24 @@ import { Route, Routes } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Payment } from './pages/Payment';
-import { useState } from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 function App() {
-    const [sum, setTotal] = useState<{total:number}>({total:0})
   return (
+    <Provider store={store}>
     <div className="text-blue-400 my-5 container mx-auto px-2">
-         <Navbar total = {sum.total} />
+         <Navbar/>
 
 
         <Routes>
-            <Route path='/' element={<Home total={sum.total} setTotal={setTotal} />}/>
+            <Route path='/' element={<Home />}/>
             {/* <Route path='/products' element={<ProductList />} /> */}
             <Route path='/payment' element={<Payment />} />
         </Routes>
 
     </div>
+    </Provider>
   );
 }
 

@@ -1,18 +1,17 @@
+// import Product from './components/Product';
 
+export interface ProductType {
+    id: number
+	title: string
+	price: string
+	description: string
+}
 
 export interface Props {
-    title?: string
-    price?: string
-    desc?: string
-    product?: {
-        title: string
-        price: string
-        desc: string
-    }
-    setTotal: SetTotal
+	product: ProductType
 }
 
 export interface SetTotal {
-    total: number
-    setTotal: React.Dispatch<React.SetStateAction<{total:number}>>
+	total: number
+	setTotal: React.Dispatch<React.SetStateAction<{ total: number }>>
 }

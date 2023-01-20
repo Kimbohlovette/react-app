@@ -1,14 +1,13 @@
-import { ProductList } from "../components/ProductList"
-import { SetTotal } from '../types';
+import { ProductList } from '../components/ProductList';
 
-export const Home = (props:SetTotal) => {
+export const Home = () => {
   return (
     <div>
         <h1 className="text-2xl font-bold py-2">
            Products
         </h1>
 
-        <ProductList total={props.total} setTotal={props.setTotal} />
+        <ProductList/>
     </div>
   )
 }
