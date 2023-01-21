@@ -1,4 +1,4 @@
-import { createSlice, current, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { ProductType } from '../types'
 
 interface CartItem {
@@ -20,9 +20,6 @@ const productSlice = createSlice({
 	initialState,
 	reducers: {
 		addToCart: (state: State, action: PayloadAction<ProductType>) =>{
-            const newitems = state.cart.map(item =>item.item)
-            console.log(newitems)
-            //const cartLength = state.cart?state.cart.length:0
             let found = false
             for(const cartItem of state.cart){
                 if(cartItem.item.id === action.payload.id){
@@ -32,16 +29,12 @@ const productSlice = createSlice({
                 }
             }
             if(!found){
-                console.log("Not found! Adding...")
                 state.cart.push({item: action.payload, qtty: 1})
             }
             state.sumTotal += Number(action.payload.price)
-            console.log("cart after action: ", state.cart, state.cart.length)
-
         },
-		removeFromCart: (state, action:PayloadAction<number> )=> {
+		removeFromCart: (state, action:PayloadAction<number> )=> { 
             const id = action.payload
-
             for(const cartItem of state.cart){
                 if(cartItem.item.id===id){
                     const index = state.cart.indexOf(cartItem)
@@ -52,12 +45,6 @@ const productSlice = createSlice({
 	},
 })
 
-//console.log(productSlice.actions.addToCart)
-
 export const { addToCart, removeFromCart } = productSlice.actions
-
 export const getCart = (state:any) => state
-
-export const getSumTotal = (state: any) => state.sumTotal
-
 export default productSlice.reducer
