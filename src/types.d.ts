@@ -10,8 +10,3 @@ export interface ProductType {
 export interface Props {
 	product: ProductType
 }
-
-export interface SetTotal {
-	total: number
-	setTotal: React.Dispatch<React.SetStateAction<{ total: number }>>
-}
